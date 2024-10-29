@@ -16,48 +16,58 @@ google.charts.setOnLoadCallback(rankProdutos);
 
 function desenhaPizzaVisitas() {
 
-  // Create the data table.
-  var data = new google.visualization.DataTable();
-  data.addColumn('string', 'Topping');
-  data.addColumn('number', 'Slices');
-  data.addRows([
-    ['Visitas', 456],
-    ['Compras', 135]
-  ]);
+  setInterval(() => {  
+    
+    // Create the data table.
+    var data = new google.visualization.DataTable();
+    data.addColumn('string', 'Topping');
+    data.addColumn('number', 'Slices');
+    data.addRows([
+      ['Visitas', Math.random(Math.floor() * (300 -1 +1) + 1)],
+      ['Compras', Math.random(Math.floor() * (300 -1 +1) + 1)]
+    ]);
 
-  // Set chart options
-  var options = {
-    'title': 'Visitas X Compras'
-  };
+    // Set chart options
+    var options = {
+      'title': 'Visitas X Compras'
+    };
 
-  // Instantiate and draw our chart, passing in some options.
-  var chart = new google.visualization.PieChart(document.getElementById('visitas-compras'));
-  chart.draw(data, options);
+    // Instantiate and draw our chart, passing in some options.
+    var chart = new google.visualization.PieChart(document.getElementById('visitas-compras'));
+    chart.draw(data, options);
+
+  }, 500);
 }
 
 function desenhaLinhasFaturamento() {
-  var data = google.visualization.arrayToDataTable([
-    ['Ano', 'Faturamento', ],
-    ['Janeiro', 1000],
-    ['Fevereiro', 1170],
-    ['Março', 660],
-    ['Maio', 1030],
-    ['Junho', 1490],
-    ['Julho', 1200],
-    ['Agosto', 1340],
-    ['Setembro', 1760],
-    ['Outubro', 1900]
-  ]);
+  
+  setInterval(() => {  
 
-  var options = {
-    title: 'Faturamento',
-    curveType: 'function',
-    legend: { position: 'bottom' }
-  };
+    var data = google.visualization.arrayToDataTable([
+      ['Ano', 'Faturamento',],
+      ['Janeiro', Math.random(Math.floor() * (800 -1 +1) + 1)],
+      ['Fevereiro', Math.random(Math.floor() * (900 -1 +1) + 1)],
+      ['Março', Math.random(Math.floor() * (700 -1 +1) + 1)],
+      ['Maio', Math.random(Math.floor() * (300 -1 +1) + 1)],
+      ['Junho', Math.random(Math.floor() * (100 -1 +1) + 1)],
+      ['Julho', Math.random(Math.floor() * (800 -1 +1) + 1)],
+      ['Agosto', Math.random(Math.floor() * (100 -1 +1) + 1)],
+      ['Setembro', Math.random(Math.floor() * (600 -1 +1) + 1)],
+      ['Outubro', Math.random(Math.floor() * (500 -1 +1) + 1)]
+    ]);
 
-  var chart = new google.visualization.LineChart(document.getElementById('receita-mensal'));
+    var options = {
+      title: 'Faturamento',
+      curveType: 'function',
+      legend: { position: 'bottom' }
+    };
 
-  chart.draw(data, options);
+    var chart = new google.visualization.LineChart(document.getElementById('receita-mensal'));
+
+    chart.draw(data, options);
+
+  }, 500);
+
 }
 
 function desenhaAvaliacao() {
@@ -192,20 +202,28 @@ function desenhaProjecao() {
 }
 
 function desenhaDevolucoes() {
-  var data = google.visualization.arrayToDataTable([
-    ['Conteúdo', 'Valor'],
-    ['Compras', 300],
-    ['Devoluções', 25]
-  ]);
+  
+  setInterval(() => {
+    
+    var data = google.visualization.arrayToDataTable([
+      ['Conteúdo', 'Valor'],
+      ['Compras', Math.random()],
+      ['Devoluções', Math.random()]
+    ]);
 
-  var options = {
-    title: 'Compras vs Devoluções',
-    pieHole: 0.4,
-    legend: { position: 'bottom' }
-  };
+    var options = {
+      title: 'Compras vs Devoluções',
+      pieHole: 0.4,
+      legend: { position: 'bottom' }
+    };
 
-  var chart = new google.visualization.PieChart(document.getElementById('devolucoes'));
-  chart.draw(data, options);
+    var chart = new google.visualization.PieChart(document.getElementById('devolucoes'));
+    chart.draw(data, options);
+
+    console.log("this is the first message");
+  
+  }, 500);
+
 }
 
 function rankProdutos() {
