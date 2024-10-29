@@ -71,134 +71,158 @@ function desenhaLinhasFaturamento() {
 }
 
 function desenhaAvaliacao() {
-  var data = google.visualization.arrayToDataTable([
-    ["Avaliação", "Quantidade", { role: "style" }],
-    ["Ruim", 7, "red"],
-    ["Razoável", 25, "gold"],
-    ["Bom", 59, "color: #e5e4e2"],
-    ["Muito Bom", 75, "color: green"]
-  ]);
 
-  var view = new google.visualization.DataView(data);
-  view.setColumns([0, 1,
-    {
-      calc: "stringify",
-      sourceColumn: 1,
-      type: "string",
-      role: "annotation"
-    },
-    2]);
+  setInterval(() => {  
 
-  var options = {
-    title: "Avaliações",
-    bar: { groupWidth: "95%" },
-    legend: { position: "none" }
-  };
-  var chart = new google.visualization.ColumnChart(document.getElementById("avaliacoes"));
-  chart.draw(view, options);
+    var data = google.visualization.arrayToDataTable([
+      ["Avaliação", "Quantidade", { role: "style" }],
+      ["Ruim", Math.random(Math.floor() * (50 -1 +1) + 1), "red"],
+      ["Razoável", Math.random(Math.floor() * (60 -1 +1) + 1), "gold"],
+      ["Bom", Math.random(Math.floor() * (70 -1 +1) + 1), "color: #e5e4e2"],
+      ["Muito Bom", Math.random(Math.floor() * (80 -1 +1) + 1), "color: green"]
+    ]);
+
+    var view = new google.visualization.DataView(data);
+    view.setColumns([0, 1,
+      {
+        calc: "stringify",
+        sourceColumn: 1,
+        type: "string",
+        role: "annotation"
+      },
+      2]);
+
+    var options = {
+      title: "Avaliações",
+      bar: { groupWidth: "95%" },
+      legend: { position: "none" }
+    };
+    var chart = new google.visualization.ColumnChart(document.getElementById("avaliacoes"));
+    chart.draw(view, options);
+  }, 500);
 }
 
 function desenhaTicket() {
 
-  var data = google.visualization.arrayToDataTable([
-    ['Label', 'Value'],
-    ['Ticket', 450.04]
-  ]);
+  setInterval(() => { 
 
-  var options = {
-    greenFrom: 400, greenTo: 500,
-    yellowFrom: 300, yellowTo: 400,
-    redFrom: 0, redTo: 300,
-    max: 500, minorTicks: 5
-  };
+    var data = google.visualization.arrayToDataTable([
+      ['Label', 'Value'],
+      ['Ticket', Math.random(Math.floor() * (500 -1 +1) + 1)]
+    ]);
 
-  var chart = new google.visualization.Gauge(document.getElementById('ticket-medio'));
+    var options = {
+      greenFrom: 400, greenTo: 500,
+      yellowFrom: 300, yellowTo: 400,
+      redFrom: 0, redTo: 300,
+      max: 500, minorTicks: 5
+    };
 
-  chart.draw(data, options);
+    var chart = new google.visualization.Gauge(document.getElementById('ticket-medio'));
+
+    chart.draw(data, options);
+  
+  }, 500);
 }
 
 function desenhaVendedores() {
-  var data = google.visualization.arrayToDataTable([
-    ["Element", "Density", { role: "style" }],
-    ["Roger P.", 7500, "color: #e5e4e2"],
-    ["Fábio E.", 11200, "gold"],
-    ["Ricardo T.", 12500, "silver"],
-    ["João Roma", 15600, "#b87333"]
-  ]);
 
-  var view = new google.visualization.DataView(data);
-  view.setColumns([0, 1,
-    {
-      calc: "stringify",
-      sourceColumn: 1,
-      type: "string",
-      role: "annotation"
-    },
-    2]);
+  setInterval(() => { 
+    var data = google.visualization.arrayToDataTable([
+      ["Element", "Density", { role: "style" }],
+      ["Roger P.", Math.random(Math.floor() * (8000 -1 +1) + 1), "color: #e5e4e2"],
+      ["Fábio E.", Math.random(Math.floor() * (7000 -1 +1) + 1), "gold"],
+      ["Ricardo T.", Math.random(Math.floor() * (5000 -1 +1) + 1), "silver"],
+      ["João Roma", Math.random(Math.floor() * (4500 -1 +1) + 1), "#b87333"]
+    ]);
 
-  var options = {
-    title: "Top Vendedores",
-    bar: { groupWidth: "95%" },
-    legend: { position: "none" }
-  };
-  var chart = new google.visualization.ColumnChart(document.getElementById("top-vendedores"));
-  chart.draw(view, options);
+    var view = new google.visualization.DataView(data);
+    view.setColumns([0, 1,
+      {
+        calc: "stringify",
+        sourceColumn: 1,
+        type: "string",
+        role: "annotation"
+      },
+      2]);
+
+    var options = {
+      title: "Top Vendedores",
+      bar: { groupWidth: "95%" },
+      legend: { position: "none" }
+    };
+    var chart = new google.visualization.ColumnChart(document.getElementById("top-vendedores"));
+    chart.draw(view, options);
+
+  }, 500);
 }
 
 function desenhaMeta() {
 
-  var data = google.visualization.arrayToDataTable([
-    ['Label', 'Value'],
-    ['Meta %', 90]
-  ]);
+  setInterval(() => {
 
-  var options = {
-    greenFrom: 90, greenTo: 100,
-    yellowFrom: 60, yellowTo: 90,
-    redFrom: 0, redTo: 60,
-    max: 100, minorTicks: 5
-  };
+    var data = google.visualization.arrayToDataTable([
+      ['Label', 'Value'],
+      ['Meta %', Math.random(Math.floor() * (100 -1 +1) + 1)]
+    ]);
 
-  var chart = new google.visualization.Gauge(document.getElementById('meta'));
+    var options = {
+      greenFrom: 90, greenTo: 100,
+      yellowFrom: 60, yellowTo: 90,
+      redFrom: 0, redTo: 60,
+      max: 100, minorTicks: 5
+    };
 
-  chart.draw(data, options);
+    var chart = new google.visualization.Gauge(document.getElementById('meta'));
+
+    chart.draw(data, options);
+
+  }, 500);
 }
 
 function desenhaComparativoAnos() {
 
-  var data = google.visualization.arrayToDataTable([
-    ['Ano', 'Total Venda'],
-    ['2022', 123000],
-    ['2023', 135000],
-    ['2024', 85000]
-  ]);
+  setInterval(() => {
 
-  var options = {
-    title: 'Comparativo Anos Anteriores',
-    curveType: 'function',
-    legend: { position: 'bottom' }
-  };
+    var data = google.visualization.arrayToDataTable([
+      ['Ano', 'Total Venda'],
+      ['2022', Math.random(Math.floor() * (12300 -1 +1) + 1)],
+      ['2023', Math.random(Math.floor() * (10000 -1 +1) + 1)],
+      ['2024', Math.random(Math.floor() * (8000 -1 +1) + 1)]
+    ]);
 
-  var chart = new google.visualization.LineChart(document.getElementById('comparativo_anos'));
+    var options = {
+      title: 'Comparativo Anos Anteriores',
+      curveType: 'function',
+      legend: { position: 'bottom' }
+    };
 
-  chart.draw(data, options);
+    var chart = new google.visualization.LineChart(document.getElementById('comparativo_anos'));
+
+    chart.draw(data, options);
+ }, 500);
 }
 
 function desenhaProjecao() {
-  var data = google.visualization.arrayToDataTable([
-    ['Ano', 'Faturamento'],
-    ['Novembro', 17600],
-    ['Dezembro', 19000]
-  ]);
 
-  var options = {
-    title: 'Projeção Faturamento',
-    legend: { position: 'bottom' }
-  };
+  setInterval(() => {
 
-  var chart = new google.visualization.LineChart(document.getElementById('projecao'));
+    var data = google.visualization.arrayToDataTable([
+      ['Ano', 'Faturamento'],
+      ['Novembro', Math.random(Math.floor() * (17000 -1 +1) + 1)],
+      ['Dezembro', Math.random(Math.floor() * (19000 -1 +1) + 1)]
+    ]);
 
-  chart.draw(data, options);
+    var options = {
+      title: 'Projeção Faturamento',
+      legend: { position: 'bottom' }
+    };
+
+    var chart = new google.visualization.LineChart(document.getElementById('projecao'));
+
+    chart.draw(data, options);
+
+  }, 500);
 }
 
 function desenhaDevolucoes() {
