@@ -108,7 +108,7 @@ function desenhaTicket() {
 
     var data = google.visualization.arrayToDataTable([
       ['Label', 'Value'],
-      ['Ticket', Math.random(Math.floor() * (500 -1 +1) + 1)]
+      ['Ticket', Math.random(500)*400]
     ]);
 
     var options = {
@@ -163,7 +163,7 @@ function desenhaMeta() {
 
     var data = google.visualization.arrayToDataTable([
       ['Label', 'Value'],
-      ['Meta %', Math.random(Math.floor() * (100 -1 +1) + 1)]
+      ['Meta %', Math.random(100)*100]
     ]);
 
     var options = {
