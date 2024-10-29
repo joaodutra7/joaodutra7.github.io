@@ -1,8 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Bungee+Tint&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap');
+
 
 * {
     box-sizing: border-box;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans';
+    font-family: "IBM Plex Sans", sans-serif;
     margin: 0;
 }
 
@@ -13,7 +14,7 @@ header {
 }
 
 header h1 {
-    font-family: 'Trebuchet MS', sans-serif;
+	font-family: "IBM Plex Sans", sans-serif;
     color: #F2F2F2;
     font-size: 2em;
     padding-top: 1em;
@@ -49,7 +50,6 @@ rect {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background-color: #595959;
 }
 
 #avaliacoes {
@@ -61,7 +61,6 @@ rect {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	background-color: #595959;
 }
 
 #rank-produtos {
@@ -87,14 +86,13 @@ rect {
 	justify-content: center;
 	align-items: center;
 	padding: 20px;
-	background-color: #595959;
   }
 
   .carousel-container {
 	width: 80%;
-	max-width: 600px;  /* Você pode ajustar esse valor conforme necessário */
-	height: 150px;      /* Define uma altura fixa para o contêiner */
-	overflow: hidden;   /* Oculta qualquer conteúdo que exceda a altura do contêiner */
+	max-width: 600px;
+	height: 150px;
+	overflow: hidden;   
 	position: relative;
 	border-radius: 10px;
   }
@@ -105,23 +103,22 @@ rect {
   }
 
   .carousel-slide img {
-	max-width: 100%;   /* Permite que a imagem ocupe no máximo 100% da largura do contêiner */
-	max-height: 150px; /* Define uma altura máxima para as imagens */
-	height: 150px;
-	width: 600px;  /* Mantém a proporção da imagem */
-	border-right: 2px solid #333;
+	height: 30%;
+	width: 30%;
+	padding-left: 70px;
+	padding-top: 60px;
   }
 
   .prev, .next {
 	position: absolute;
 	top: 50%;
 	transform: translateY(-50%);
-	background-color: rgba(0, 0, 0, 0.5);
+	background-color: gray;
 	color: white;
 	border: none;
 	padding: 10px;
 	cursor: pointer;
-	font-size: 18px;
+	font-size: 14px;
 	border-radius: 50%;
   }
 

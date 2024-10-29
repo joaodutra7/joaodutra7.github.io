@@ -1,46 +1,55 @@
-    const companyNames = ['Amazon', 'Microsoft', 'Google', 'Facebook'];
-    let currentIndex = 0;
+(function () {
+  $.ajax({
+    method: 'GET',
+    url: 'https://api.api-ninjas.com/v1/logo?name=A',
+    headers: { 'X-Api-Key': 'zn0DLZGiNDA7Z1YSdhyL5g==G0AZmyj0xReSGJQh' },
+    contentType: 'application/json',
+    success: function (result) {
+      carouselSlide = document.getElementById('carousel-slide');
 
-      async function fetchLogo(company) {
-        const response = await fetch(`https://api.api-ninjas.com/v1/logo?name=${company}`, {
-          headers: { 'X-Api-Key': 'oZ9zdtyGReDk3Hs6WujNGg==vRASf0WI84ubmTXl' }
-        });
-        const logoData = await response.json();
-      
-        if (logoData.length > 0 && logoData[0].image) {  // Acessa o primeiro elemento do array
-          return logoData[0].image;
-        } else {
-          console.log(`Logo não encontrado para: ${company}`);
-          return null;
-        }
+      result.shift();
+
+      for (let imagem in result) {
+        const imgElement = document.createElement('img');
+        imgElement.src = result[imagem].image;
+        carouselSlide.appendChild(imgElement);
       }
 
-      async function loadCarouselImages() {
-        const carouselSlide = document.getElementById('carousel-slide');
-        for (let company of companyNames) {
-          const logoUrl = await fetchLogo(company);
-          if (logoUrl) {  // Só adiciona se a URL da imagem for válida
-            const imgElement = document.createElement('img');
-            imgElement.src = logoUrl;
-            imgElement.alt = `${company} logo`;
-            carouselSlide.appendChild(imgElement);
-          }
-        }
-        updateSlide();
-      }
-
-    function moveSlide(direction) {
-      const totalImages = document.querySelectorAll('#carousel-slide img').length;
-      currentIndex = (currentIndex + direction + totalImages) % totalImages;
-      updateSlide();
+    },
+    error: function ajaxError(jqXHR) {
+      console.error('Error: ', jqXHR.responseText);
     }
+  });
+})();
 
-    function updateSlide() {
-      const slideWidth = document.querySelector('.carousel-container').offsetWidth;
-      document.getElementById('carousel-slide').style.transform = `translateX(-${currentIndex * slideWidth}px)`;
-    }
+let currentIndex = 0;
 
-    window.addEventListener('resize', updateSlide);
 
-    loadCarouselImages();
+function moveSlide(direction) {
+  const totalImages = (document.querySelectorAll('#carousel-slide img').length/3) - 1;
+  console.log(`Total Images: ${totalImages}, Current Index: ${currentIndex}`);
+
+  currentIndex += direction;
+
+  if (currentIndex < 0) {
+    currentIndex = totalImages - 1;
+  } else if (currentIndex >= totalImages) {
+    currentIndex = 0;
+  }
+
+  console.log(`Total Images: ${totalImages}, Current Index: ${currentIndex}`);
+  updateSlide();
+}
+
+
+function updateSlide() {
+  const slideWidth = document.querySelector('.carousel-container').offsetWidth;
+  document.getElementById('carousel-slide').style.transform = `translateX(-${currentIndex * slideWidth}px)`;
+}
+
+window.addEventListener('resize', updateSlide);
+
+
+
+
 
